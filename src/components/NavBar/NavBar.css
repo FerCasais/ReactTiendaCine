@@ -1,0 +1,33 @@
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(233, 223, 210);
+    color: black;
+}
+
+.nav a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.nav a:hover {
+    color: rgb(238, 29, 147);
+}
+
+.navSearch {
+    display: flex;
+    justify-content: end;
+   padding-bottom: 1%;
+    padding-right: 2%;
+    background-color: rgb(233, 223, 210);
+}
+
+
+
+

@@ -1,0 +1,25 @@
+.DolceVita {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+
+.h1 {
+    background-color: rgb(113, 193, 218);
+    color: rgb(5, 5, 189);
+    text-align: center;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+.subtitle {
+    color: rgb(194, 67, 131);
+}
+
+.header {
+    background-color: rgb(123, 64, 101);
+}

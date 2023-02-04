@@ -1,0 +1,60 @@
+.bienvenida {
+  font-size: larger;
+  text-align: center;
+  color: red;
+  padding-top: 2%;
+}
+
+/* .itemList:hover {
+  font-size: 250%;
+  font-weight: bolder;
+  background-color: rgb(205, 138, 181);
+  color: rgb(37, 32, 33);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  transform: translate(0px, 50px);
+  transition: all 3s ease-in-out;
+  
+} */
+
+.itemList {
+    background-color: rgb(231, 170, 206);
+}
+
+body {
+
+  background-color: rgb(215, 154, 199);
+  
+}
+
+.card {
+  
+  display: flex;
+    justify-content: space-around;
+  margin-bottom: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+
+  
+
+}
+
+.producto-cards {
+  background-color: rgba(210, 146, 195, 0.827);
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.loader {
+ 
+ margin-left: 150%;
+}
+
+
+
+
+
+
+
+
+

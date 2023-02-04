@@ -1,0 +1,16 @@
+.contador {
+    background-color: rgb(216, 202, 215);
+
+    font-family:'Times New Roman', Times, serif;
+    color: darkslategrey;
+    font-weight: bolder;
+
+
+}
+
+.boton {
+    background-color: rgb(154, 119, 186);
+    color: rgb(72, 18, 56);
+    font-weight: bolder;
+    font-size: larger;
+}

@@ -1,0 +1,37 @@
+.imagenCarrito {
+    width: 30%;
+}
+
+.img-carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-color: dimgrey;
+     
+    
+}
+
+.imagen-carrito {
+width: 25%;
+}
+
+.imagen-carrito2 {
+    width: 19.5%;
+    }
+
+    .botones-carrito {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+
+    .botones {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around
+
+    }
+
+
+
