@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ItemList from "../../ItemList/ItemList";
 import Loader from "../../../Loader/Loader";
-
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 function ItemListContainer() {
   const [productos, setProductos] = useState([]);
@@ -20,26 +20,59 @@ function ItemListContainer() {
   console.log({ categoryId });
 
   useEffect(() => {
+    const db = getFirestore()
+    const queryCollection = collection(db, 'productos')
+    
     if (categoryId) {
-      getFetch()
-        .then((respuestaPromesa) => {
-          setProductos(
-            respuestaPromesa.filter((items) => items.genero === categoryId)
-          );
-        })
-        .catch((err) => console.log("error"))
-        .finally(() => setLoadings(false));
-    } else {
-      getFetch()
-        .then((respuestaPromesa) => {
-          setProductos(respuestaPromesa);
-        })
-        .catch((err) => console.log("error"))
-        .finally(() => setLoadings(false));
-    }
-  }, [categoryId]);
 
-  console.log(categoryId);
+      const querySelectionFilter = query(queryCollection, where('genero', '==', categoryId))
+
+      getDocs(querySelectionFilter)
+      .then((respuestaPromesa) => {
+                setProductos(
+                  respuestaPromesa.docs.map(prod => ({ id: prod.id, ...prod.data()}))
+                );
+              })
+              .catch((err) => console.log("error"))
+              .finally(() => setLoadings(false));
+
+    }else {
+
+ getDocs(queryCollection)
+    .then((respuestaPromesa) => {
+              setProductos(
+                respuestaPromesa.docs.map(prod => ({ id: prod.id, ...prod.data()}))
+              );
+            })
+            .catch((err) => console.log("error"))
+            .finally(() => setLoadings(false));
+
+    }
+
+
+  },[categoryId])
+
+  // useEffect(() => {
+  //   if (categoryId) {
+  //     getFetch()
+  //       .then((respuestaPromesa) => {
+  //         setProductos(
+  //           respuestaPromesa.filter((items) => items.genero === categoryId)
+  //         );
+  //       })
+  //       .catch((err) => console.log("error"))
+  //       .finally(() => setLoadings(false));
+  //   } else {
+  //     getFetch()
+  //       .then((respuestaPromesa) => {
+  //         setProductos(respuestaPromesa);
+  //       })
+  //       .catch((err) => console.log("error"))
+  //       .finally(() => setLoadings(false));
+  //   }
+  // }, [categoryId]);
+
+  // console.log(categoryId);
 
   return (
    
@@ -55,8 +88,6 @@ function ItemListContainer() {
 
             <Col md={"12"}>
            
-              
-
                 <ItemList productos={productos}/>
               
                 </Col>
@@ -69,8 +100,6 @@ function ItemListContainer() {
     </div>
   </>
      
-
-    
   );
 }
 

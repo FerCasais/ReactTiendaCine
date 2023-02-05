@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Params, useParams } from "react-router-dom";
 import { getFetch } from "../../utils/getFetch";
+
+import { getItems } from "../../utils/firebase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col} from "react-bootstrap";
 import ItemDetail from "../../ItemDetail/ItemDetail";
-
-
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 
 
@@ -20,19 +21,27 @@ function ItemDetailContainer() {
     console.log({detailId})
   
     useEffect(() => {
+
+      const db = getFirestore()
+      const queryDoc = doc(db, 'productos', detailId)
+      getDoc(queryDoc)
+      .then (results => setProductos( { id: results.id, ...results.data() } ))
+
+      .catch((err) => console.log("error"))
+       .finally(() => setLoadings(false))
   
-      if ((detailId) ) {
-        getFetch()
-        .then((respuestaPromesa) => {
-          setProductos(respuestaPromesa.find(items => (items.id) === parseInt(detailId)));
-        })
-        .catch((err) => console.log("error"))
-        .finally(() => setLoadings(false))
+    //   if ((detailId) ) {
+    //     getFetch()
+    //     .then((respuestaPromesa) => {
+    //       setProductos(respuestaPromesa.find(items => (items.id) === parseInt(detailId)));
+    //     })
+    //     .catch((err) => console.log("error"))
+    //     .finally(() => setLoadings(false))
         
-      } }, [detailId]);
+    }, [detailId]);
   
   
-    console.log(detailId)
+    // console.log(detailId)
    
    
    

@@ -28,12 +28,12 @@ function NavBar(props) {
       </div>
 
       <ul className="nav">
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'} to={'/categoria/comedias '} >Comedias</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'}to={'/categoria/romanticas'}>Románticas</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'}to={'/categoria/drama'}>Drama</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'}to={'/categoria/documentales'}>Documentales</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'}to={'/categoria/series'}>Series</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-warning fs-2' : 'btn btn-danger btn-outline-secondary fs-4'}to={'/categoria/suspenso'}>Suspenso</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'} to={'/categoria/comedias '} >Comedias</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/romanticas'}>Románticas</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/drama'}>Drama</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/documentales'}>Documentales</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/series'}>Series</NavLink>
+        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/suspenso'}>Suspenso</NavLink>
         
 
         <nav>

@@ -5,10 +5,6 @@ import App from './App';
 import  reportWebVitals  from './reportWebVitals';
 import { initFirebase } from './components/utils/firebase.js';
 
-
-
-
-
 initFirebase ()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

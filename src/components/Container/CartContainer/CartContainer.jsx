@@ -4,11 +4,64 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const CartContainer = () => {
+
+  const [dataForm, setDataForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  })
   const { cartList, vaciarCarrito, Total, RemoveItem } = useCartContext();
   console.log(cartList);
 
+  const generarOrden = (evt) => {
+
+    evt.preventDefault();
+
+
+
+    const order = {}
+
+    order.buyer = { dataForm}
+    order.items = cartList.map(  ( {id, titulo, precio} ) => ( {id, titulo, precio} ) )
+   
+
+    console.log(order)
+
+    const db = getFirestore ()
+
+    const queryCollection = collection (db, 'orders')
+
+    addDoc (queryCollection, order)
+    .then ( (response) => console.log(response ))
+    .catch ( (err) => console.log(err))
+    .finally ( () => console.log ('fin'))
+
+
+
+  } 
+
+const handleOnChange = (evt) => {
+
+ console.log(evt.target.name)
+ console.log(evt.target.value)  
+
+ setDataForm ( {
+
+  ... dataForm, 
+  [evt.target.name]: evt.target.value
+
+
+
+ })
+
+
+}
+console.log(dataForm)
   return Total > 0 ? (
     <>
       <div>
@@ -44,8 +97,71 @@ const CartContainer = () => {
                 </Card>
               </Col>
               <Col md={4}>
-                <Card>
+                <Card className="mt-5 text-center">
+
+                  
+
+
+
                   RESUMEN DE LA COMPRA
+                  <h6>Sala: {prod.sala}{" "}</h6><h6>Función 18 hs.</h6>
+                  <p> Entradas: {prod.cantidad} Precio: EU {prod.precio}</p><h6>{`Total Eu: ${
+                      prod.precio * prod.cantidad
+                    }`}</h6>
+                    
+                    <form onSubmit={generarOrden} className="form-control w-100" >
+
+                    <input 
+
+                    type="text" 
+                    name="name" 
+                    placeholder="Ingresar Nombre"
+                    value={dataForm.name}
+                    onChange={ handleOnChange}
+                    />
+
+<input 
+
+type="text" 
+name="phone" 
+placeholder="Teléfono"
+value={dataForm.phone}
+onChange={ handleOnChange}
+/>
+
+<input 
+
+                    type="email" 
+                    name="email" 
+                    placeholder="Ingresar Email"
+                    value={dataForm.email}
+                    onChange={handleOnChange}
+                    />
+
+<input 
+
+type="text" 
+name="email" 
+placeholder="Validar Email"
+value={dataForm.email}
+onChange={ handleOnChange}
+/>
+                    
+
+
+            <button type="submit" onClick={generarOrden}  className="bg-danger btn btn-outline-light w-100 mt-5">
+              COMPRAR
+            </button>
+                 
+
+                  
+
+                  </form>
+
+
+
+                    <button  className="bg-danger btn btn-outline-light">ir a pagar</button>
+                      
                 </Card>
               </Col></Row>
             </Container>
@@ -63,7 +179,7 @@ const CartContainer = () => {
           </Col>
 
           <Col md className="botones-carrito ">
-            <button className="btn btn-dark btn-outline-danger btn-lg">
+            <button onClick={generarOrden}  className="btn btn-dark btn-outline-danger btn-lg">
               COMPRAR
             </button>
           </Col>

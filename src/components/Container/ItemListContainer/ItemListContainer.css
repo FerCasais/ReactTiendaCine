@@ -17,12 +17,12 @@
 } */
 
 .itemList {
-    background-color: rgb(231, 170, 206);
+  background: linear-gradient(to bottom right, rgb(243, 233, 97), rgb(248, 244, 206));
 }
 
 body {
 
-  background-color: rgb(215, 154, 199);
+  background: linear-gradient(to bottom right, rgb(243, 233, 97), rgb(248, 244, 206));
   
 }
 
@@ -39,9 +39,11 @@ body {
 }
 
 .producto-cards {
-  background-color: rgba(210, 146, 195, 0.827);
+  background: linear-gradient(to bottom right, rgb(243, 233, 97), rgb(248, 244, 206));
   display: flex;
   justify-content: space-around;
+  
+  
   
 }
 

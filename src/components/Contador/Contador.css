@@ -1,5 +1,5 @@
 .contador {
-    background-color: rgb(216, 202, 215);
+    background: linear-gradient(to bottom right, rgb(243, 233, 97), rgb(248, 244, 206));
 
     font-family:'Times New Roman', Times, serif;
     color: darkslategrey;

@@ -4,7 +4,7 @@
     padding-bottom: 3%;
     display: flex;
     justify-content: space-around;
-    background-color: rgb(233, 223, 210);
+    background: linear-gradient(to bottom right, rgb(243, 233, 97), rgb(248, 244, 206));
     color: black;
 }
 

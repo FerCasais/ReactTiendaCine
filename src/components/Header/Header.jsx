@@ -7,7 +7,7 @@ function Header() {
     <div className="header">
       <div className="DolceVita">
       <NavLink to={'/'} ><img src={dolcevita} width="300" /></NavLink>
-        <div className="h1">
+        <div className="h1 text-secondary">
           <NavLink to={'/'} ><h1>Cinema "La DolceVita" </h1></NavLink>
         </div>
         <div>

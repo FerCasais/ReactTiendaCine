@@ -7,7 +7,7 @@ const Loader = () => {
     <>
       <span class="loader"></span>
 
-      <h2>... cargando ...</h2>
+      <h3>... cargando ...</h3>
       <iframe
         src="https://giphy.com/embed/RKS1pHGiUUZ2g"
         width="480"
