@@ -1,9 +1,10 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate, Link, NavLink } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+} from "react-router-dom";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import Header from "../../components/Header/Header";
-
 
 function NavBar(props) {
   return (
@@ -28,17 +29,71 @@ function NavBar(props) {
       </div>
 
       <ul className="nav">
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'} to={'/categoria/comedias '} >Comedias</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/romanticas'}>Románticas</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/drama'}>Drama</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/documentales'}>Documentales</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/series'}>Series</NavLink>
-        <NavLink className={({isActive})=>isActive ? 'btn btn-dark text-light fs-2' : 'btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4'}to={'/categoria/suspenso'}>Suspenso</NavLink>
-        
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/comedias "}
+        >
+          Comedias
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/romanticas"}
+        >
+          Románticas
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/drama"}
+        >
+          Drama
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/documentales"}
+        >
+          Documentales
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/series"}
+        >
+          Series
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "btn btn-dark text-light fs-2"
+              : "btn btn-text-primary text-opacity-50 btn-outline-secondary fs-4"
+          }
+          to={"/categoria/suspenso"}
+        >
+          Suspenso
+        </NavLink>
 
         <nav>
-        <Link to="/cart"><CartWidget /></Link>
-        
+          <Link to="/cart">
+            <CartWidget />
+          </Link>
         </nav>
       </ul>
     </div>

@@ -9,13 +9,7 @@ import {
   getFirestore,
   addDoc,
   getDocs,
-  getDoc,
-  docs,
-  where,
-  query,
-  doc,
-} from "firebase/firestore";
-import { useEffect } from "react";
+  } from "firebase/firestore";
 import { useState } from "react";
 import CheckOut from "../../CheckOut/CheckOut";
 
@@ -30,7 +24,6 @@ const CartContainer = () => {
   });
   const { cartList, vaciarCarrito, Total, RemoveItem, totalItems, mostrar } =
     useCartContext();
-  console.log(cartList);
 
   const generarOrden = (evt) => {
     evt.preventDefault();
@@ -52,44 +45,36 @@ const CartContainer = () => {
 
     addDoc(queryCollection, order)
       .then((response) => {
-        console.log("su Id es:", response.id, order);
-
+       
         setGetID(response.id);
       })
 
       .catch((error) => console.log(error))
       .finally(() => console.log("finished"));
-   
   };
 
   async function getItems() {
     const db = getFirestore();
-
     const queryCollection = collection(db, "orders");
-
     const snapshot = await getDocs(queryCollection);
     const getOrders = snapshot.docs.map((order) => order.data());
-    console.log(getOrders);
+    
     return getOrders;
   }
 
   getItems();
 
   const handleOnChange = (evt) => {
-    console.log(evt.target.id);
-    console.log(evt.target.value);
-
+  
     setDataForm({
       ...dataForm,
       [evt.target.name]: evt.target.value,
     });
-
-    console.log(dataForm);
+  
   };
 
   return Total > 0 ? (
     <>
-      
       <div className="text-center">
         {" "}
         <h2>TU CARRITO</h2>{" "}
@@ -160,13 +145,14 @@ const CartContainer = () => {
           </Col>
 
           <Col md className="botones-carrito ">
-          <Link to="/checkout">
-             <button
-              onClick={CheckOut}
-              className="btn btn-dark btn-outline-danger btn-lg card"
-            >
-              COMPRAR
-            </button></Link>{" "}
+            <Link to="/checkout">
+              <button
+                onClick={CheckOut}
+                className="btn btn-dark btn-outline-danger btn-lg card"
+              >
+                COMPRAR
+              </button>
+            </Link>{" "}
           </Col>
 
           <Col md className="botones-carrito ">
@@ -184,8 +170,6 @@ const CartContainer = () => {
           <Row></Row>
         </Container>
       </div>
-      
-    
     </>
   ) : (
     <div className="p-4 mt-1">
@@ -214,10 +198,6 @@ const CartContainer = () => {
       </div>
     </div>
   );
-
- 
-
-
 };
 
 export default CartContainer;

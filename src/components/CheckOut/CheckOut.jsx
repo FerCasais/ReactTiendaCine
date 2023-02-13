@@ -1,8 +1,8 @@
 import { useCartContext } from "../../CartContext/CartContext";
 import Loader from "../../Loader/Loader";
-
+import Swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import {  Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import {
@@ -10,13 +10,7 @@ import {
   getFirestore,
   addDoc,
   getDocs,
-  getDoc,
-  docs,
-  where,
-  query,
-  doc,
-} from "firebase/firestore";
-import { useEffect } from "react";
+ } from "firebase/firestore";
 import { useState } from "react";
 
 const CheckOut = () => {
@@ -29,30 +23,64 @@ const CheckOut = () => {
     email: "",
     email2: "",
     dia: new Date(),
-   
-   
   });
   const { cartList, vaciarCarrito, Total, RemoveItem, totalItems, mostrar } =
     useCartContext();
-  console.log(cartList);
 
   const verify = () => {
-    setLoader(false)
+    setLoader(false);
+    let timerInterval;
     if (nameOk === false) {
-      alert('ingresar su nombre')
-     } else if (phoneOk === false) {
-      alert('ingresar su telefono ')
-     } else if (emailOk === false) {
-      alert ('ingresar mail')
-     } else if (emailVerication === false) {
-      alert ('verificar mail')
-     } else alert ('verficado')
-
-  } 
-  
+      Swal.fire({
+        color: "black",
+        background: "#FEFE85",
+        title: "Ingrese su nombre",
+      });
+    } else if (phoneOk === false) {
+      Swal.fire({
+        color: "black",
+        background: "#FEFE85",
+        title: "Ingrese un telefono valido",
+      });
+    } else if (emailOk === false) {
+      Swal.fire({
+        color: "black",
+        background: "#FEFE85",
+        title: "Ingrese su mail",
+      });
+    } else if (emailVerication === false) {
+      Swal.fire({
+        color: "black",
+        background: "#FEFE85",
+        title: "Verifique su mail",
+      });
+    } else
+      Swal.fire({
+        icon: "success",
+        title: "Formulario verificado",
+        color: "black",
+        background: "#FEFE85",
+        html: " ...procesando compra...",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          
+        }
+      });
+  };
 
   const generarOrden = (evt) => {
-
     setLoader(true);
 
     evt.preventDefault();
@@ -68,17 +96,13 @@ const CheckOut = () => {
     vaciarCarrito();
     setLoader(false);
 
-    console.log(order);
-
     const db = getFirestore();
 
     const queryCollection = collection(db, "orders");
 
     addDoc(queryCollection, order)
       .then((response) => {
-        console.log("su Id es:", response.id, order);
-
-        setGetID(response.id);
+       setGetID(response.id);
       })
 
       .catch((error) => console.log(error))
@@ -94,67 +118,40 @@ const CheckOut = () => {
 
     const snapshot = await getDocs(queryCollection);
     const getOrders = snapshot.docs.map((order) => order.data());
-    console.log(getOrders);
     return getOrders;
   }
 
   getItems();
 
-  const handleOnChange = (evt) => {
-    console.log(evt.target.id);
-    console.log(evt.target.value);
+  ///////////////////////////////////////
 
-    setDataForm({
+  const handleOnChange = (evt) => {
+     setDataForm({
       ...dataForm,
       [evt.target.name]: evt.target.value,
     });
-
-    console.log(dataForm.dia);
-   
-
-  };
+    };
 
   //validaciones formulario
 
+  let mail = dataForm.email;
+  let regExp =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  let emailOk = regExp.test(mail);
 
+  let mail1 = dataForm.email;
+  let mail2 = dataForm.email2;
+  let emailVerication = mail1 === mail2;
 
- 
+  let phone = dataForm.phone;
+  let regExpPhone =
+    /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
+  let phoneOk = regExpPhone.test(phone);
 
-  let mail = dataForm.email
-  let regExp = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+  let nombre = dataForm.name;
+  let nameOk = nombre != "";
 
-  let emailOk = regExp.test(mail)
-
-  console.log(emailOk)
-
-
-let mail1 = dataForm.email
-let mail2 = dataForm.email2
-
-let emailVerication = (mail1 === mail2)
-
-console.log(emailVerication)
-
-  let phone = dataForm.phone
-  let regExpPhone = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm
-
-  let phoneOk = regExpPhone.test(phone)
-
-  console.log(phoneOk)
-
-  let nombre = dataForm.name
-
-  let nameOk = nombre != ''
-
-  console.log(nameOk)
-
-  
-  
- 
-////////////////////////////////
-
-
-
+  ////////////////////////////////
 
   return (
     <>
@@ -222,8 +219,7 @@ console.log(emailVerication)
 
                         <button
                           type="submit"
-                          onClick=
-                            { verify }
+                          onClick={verify}
                           className="bg-danger btn btn-outline-light w-100 mt-5"
                         >
                           Realizar Compra

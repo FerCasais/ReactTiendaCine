@@ -7,7 +7,6 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
- 
 
   const agregarCarrito = (product) => {
     setCartList([...cartList, product]);
@@ -36,67 +35,25 @@ export const CartContextProvider = ({ children }) => {
 
   const Total = sumarItems.reduce((total, item) => total + item, 0);
 
-  console.log(Total);
+  const costoItem = cartList.map((prod) => prod.precio * prod.cantidad);
 
-  console.log(sumarItems);
+  const costoPorItem = cartList.map((prod) => prod.precio * prod.cantidad);
 
-  //agregar funcion
+  const totalItems = costoPorItem.reduce((total, item) => total + item, 0);
 
-  const costoItem = cartList.map((prod) => (prod.precio* prod.cantidad))
-
-  console.log(costoItem);
-
-  
-
-    const costoPorItem = cartList.map((prod) => (prod.precio* prod.cantidad))
-
-    const totalItems = costoPorItem.reduce((total, item) => total + item, 0);
-
-    console.log(totalItems);
-
-  
-
-
-
-   
-   const mostrar = cartList.map((cart) =>
-
-   'Sala: ' + cart.sala + '- Título: ' +
-  cart.titulo + '- Entradas: ' + cart.cantidad + ' ' + '- Valor: '  + (cart.cantidad * cart.precio) + ' \n '
-   
-   )
-
-console.log(mostrar)
-
-      
-    
-
-    
-
-      
-
-
-
-   
-
-   
-
-   
-    
-    
-  
-
-
-  
-   
-      
-  
-
-
-
- 
-
-
+   const mostrar = cartList.map(
+    (cart) =>
+      "Sala: " +
+      cart.sala +
+      "- Título: " +
+      cart.titulo +
+      "- Entradas: " +
+      cart.cantidad +
+      " " +
+      "- Valor: " +
+      cart.cantidad * cart.precio +
+      " \n "
+  );
 
   return (
     <CartContext.Provider
@@ -108,7 +65,6 @@ console.log(mostrar)
         Total,
         totalItems,
         mostrar,
-       
       }}
     >
       {children}

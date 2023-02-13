@@ -1,44 +1,27 @@
-import React from "react";
-import { useState , useEffect} from "react";
-
+import { useState, useEffect } from "react";
 import "./Contador.css";
 
-function Contador () {
+function Contador() {
+  const [date, setDate] = useState();
 
+  const [count, setCount] = useState(0);
 
-    const [date, setDate] = useState();
+  function handler() {
+    setCount(count + 1);
 
-    console.log(date)
-
-    const [count, setCount] = useState(0)
-   
-    console.log(count)
-
-   
-
-function handler(){
-
-    setCount(count + 1)
-
-    setDate(Date)
-
- 
+    setDate(Date);
+  }
+  return (
+    <>
+      <div className="contador">
+        <button type="button" className="boton" onClick={handler}>
+          Click me
+        </button>
+        <h5>Clicks: {count}</h5>
+        <p>{date}</p>
+      </div>
+    </>
+  );
 }
-    return (
-        <>
-        <div className="contador">
-       
-        <button type="button" className="boton" onClick={handler}>Click me</button>
-         <h5>Clicks: {count}</h5>
-         <p>{date}</p>
-         </div>
-</>
-    )
-
-
-
-
-}
-
 
 export default Contador;

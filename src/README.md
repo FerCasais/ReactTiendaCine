@@ -1,7 +1,7 @@
 ## Title: Tienda Tickets On Line 
 
 ### Screenshot of the project! 
-+++++++++++++++++++++++++++++++++![image](https://user-images.githubusercontent.com/116609929/218334343-1660faf2-9e25-459f-a940-3c48ce7a23c1.png)
+(![image](https://user-images.githubusercontent.com/116609929/218588311-f0bd504c-e86b-4c7c-b01e-843161036b0a.png))
 
 ### Description
 Portal on line de venta de entradas de cine- Construido en React JS con dependencias. Está construido para seleccionar peliculas por género a su preferencia, y se indica las salas de proyección. Proceso completo hasta comprar y recibir los tickets en su correo electrónico de registro. 
@@ -11,14 +11,12 @@ https://github.com/FerCasais
 https://www.linkedin.com/in/pablo-casais-lopez-front-end-developer-react-js/
 
 ### Demo
-Link to the project at https://startling-basbousa-afe330.netlify.app/
+Link to the project at https://merry-piroshki-61c056.netlify.app/
 
 ### Dependencys
 "bootstrap": "^5.2.3", biblioteca de herramientas de código abierto para diseño de sitios y aplicaciones web. Es un framework front-end utilizado para desarrollar aplicaciones web
 
 "firebase": "^9.17.1", uso de Cloud Firestore. Utilizando su base de datos de documentos NoSQL que me permitió almacenar, sincronizar y consultar fácilmente los datos de mi app.
-
-"formik": "^2.2.9", es una librería declarativa. Facilita la gestión de formularios en Reactjs
 
 "react": "^18.2.0",  biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página
 
@@ -30,5 +28,5 @@ Link to the project at https://startling-basbousa-afe330.netlify.app/
 
 "react-scripts": "5.0.1", uso del comando build que para generar la aplicación final. 
 
-"yup": "^1.0.0" Una librería para validar formularios con JavaScript, que da soporte tanto a aplicaciones de navegador, como a servidores con NodeJs. 
+"sweetalert2": "^11.7.1", es un plugin de jQuery que da un mejor aspecto a los mensajes de alert que lanza a los usuarios para una mejor experiencia.
     

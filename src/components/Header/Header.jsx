@@ -6,12 +6,18 @@ function Header() {
   return (
     <div className="header">
       <div className="DolceVita">
-      <NavLink to={'/'} ><img src={dolcevita} width="300" /></NavLink>
+        <NavLink to={"/"}>
+          <img src={dolcevita} width="300" />
+        </NavLink>
         <div className="h1 text-secondary">
-          <NavLink to={'/'} ><h1 className="text-decoration-none  btn btn-outline-light w-100 fs-1 text-dark">Cinema "La DolceVita" </h1></NavLink>
+          <NavLink to={"/"}>
+            <h1 className="text-decoration-none  btn btn-outline-light w-100 fs-1 text-dark">
+              Cinema "La DolceVita"{" "}
+            </h1>
+          </NavLink>
         </div>
         <div>
-       <h2 className="subtitle">Entradas online</h2>
+          <h2 className="subtitle">Entradas online</h2>
         </div>
       </div>
     </div>

@@ -1,32 +1,17 @@
-import React from "react";
 import cart from "../../assets/CartWidget.img/cart.svg";
 import "./CartWidget.css";
 import { useCartContext } from "../../CartContext/CartContext";
 
-
-
 function CartWidget() {
+  const { Total } = useCartContext();
 
-  const {Total} = useCartContext()
-
-
-
-
-  return ( (Total > 0 ) 
-  ?
-
+  return Total > 0 ? (
     <div className="CartWidget">
-      
-        <img className="cart" src={cart} alt="carrito" width={30} />  {Total}
-      
+      <img className="cart" src={cart} alt="carrito" width={30} /> {Total}
     </div>
-
-    :
-
+  ) : (
     <div className="CartWidget">
-      
-        <img className="cart" src={cart} alt="carrito" width={30} />  
-      
+      <img className="cart" src={cart} alt="carrito" width={30} />
     </div>
   );
 }

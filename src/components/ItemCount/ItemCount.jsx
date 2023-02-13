@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 
 const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
@@ -17,15 +16,16 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
   };
 
   const handleOnAdd = () => {
-    onAdd(count)
-  }
+    onAdd(count);
+  };
 
   return (
-    <div className="card"><div className="w-100 mb-0"><p className="bg-dark ">Seleccionar Entradas</p></div>
+    <div className="card">
+      <div className="w-100 mb-0">
+        <p className="bg-dark ">Seleccionar Entradas</p>
+      </div>
       <div className="card-body row">
         <div className="col ">
-          
-        
           <button className="btn btn-outline-danger w-100" onClick={handleSuma}>
             +
           </button>
@@ -40,8 +40,6 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
         </div>
       </div>
       <div className="card-footer">
-       
-       
         <button className="btn btn-outline-danger w-100" onClick={handleOnAdd}>
           Agregar al Carrito
         </button>
