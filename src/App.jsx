@@ -6,6 +6,8 @@ import ItemDetailContainer from "./components/Container/ItemDetailContainer/Item
 import CartContainer from "./components/Container/CartContainer/CartContainer";
 import NavBar from "./components/NavBar/NavBar";
 import { CartContextProvider } from "./CartContext/CartContext";
+import CheckOut from "./components/CheckOut/CheckOut";
+
 
 
 
@@ -22,6 +24,7 @@ function App() {
           <div className="App">
             <NavBar />
           </div>
+          
 
           {/* <div>
           <Contador />
@@ -35,7 +38,9 @@ function App() {
             />
             <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<CheckOut />} />
             <Route path="*" element={<Navigate to="/" />} />
+           
           </Routes>
         </BrowserRouter>
       </CartContextProvider>

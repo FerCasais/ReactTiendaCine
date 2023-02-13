@@ -11,6 +11,7 @@ export const CartContextProvider = ({ children }) => {
 
   const agregarCarrito = (product) => {
     setCartList([...cartList, product]);
+
     const repetido = cartList.find((cart) => cart.id === product.id);
 
     if (repetido) {
@@ -40,8 +41,53 @@ export const CartContextProvider = ({ children }) => {
   console.log(sumarItems);
 
   //agregar funcion
-  const costoItem = ''
 
+  const costoItem = cartList.map((prod) => (prod.precio* prod.cantidad))
+
+  console.log(costoItem);
+
+  
+
+    const costoPorItem = cartList.map((prod) => (prod.precio* prod.cantidad))
+
+    const totalItems = costoPorItem.reduce((total, item) => total + item, 0);
+
+    console.log(totalItems);
+
+  
+
+
+
+   
+   const mostrar = cartList.map((cart) =>
+
+   'Sala: ' + cart.sala + '- Título: ' +
+  cart.titulo + '- Entradas: ' + cart.cantidad + ' ' + '- Valor: '  + (cart.cantidad * cart.precio) + ' \n '
+   
+   )
+
+console.log(mostrar)
+
+      
+    
+
+    
+
+      
+
+
+
+   
+
+   
+
+   
+    
+    
+  
+
+
+  
    
       
   
@@ -60,7 +106,9 @@ export const CartContextProvider = ({ children }) => {
         RemoveItem,
         cartList,
         Total,
-        costoItem,
+        totalItems,
+        mostrar,
+       
       }}
     >
       {children}

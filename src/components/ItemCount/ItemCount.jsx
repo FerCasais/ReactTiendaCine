@@ -21,9 +21,11 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
   }
 
   return (
-    <div className="card">
+    <div className="card"><div className="w-100 mb-0"><p className="bg-dark ">Seleccionar Entradas</p></div>
       <div className="card-body row">
-        <div className="col">
+        <div className="col ">
+          
+        
           <button className="btn btn-outline-danger w-100" onClick={handleSuma}>
             +
           </button>
@@ -38,7 +40,7 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
         </div>
       </div>
       <div className="card-footer">
-        <p className="bg-dark">Seleccionar Entradas</p>
+       
        
         <button className="btn btn-outline-danger w-100" onClick={handleOnAdd}>
           Agregar al Carrito

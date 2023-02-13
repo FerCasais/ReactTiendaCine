@@ -23,7 +23,11 @@ function CartWidget() {
 
     :
 
-    ""
+    <div className="CartWidget">
+      
+        <img className="cart" src={cart} alt="carrito" width={30} />  
+      
+    </div>
   );
 }
 

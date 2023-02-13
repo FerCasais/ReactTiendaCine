@@ -11,12 +11,14 @@
     
 }
 
-.imagen-carrito {
+.imagen-carrito.p-5 {
 width: 25%;
+display: flex;
+justify-content: center;
 }
 
 .imagen-carrito2 {
-    width: 19.5%;
+    width: 25.5%;
     }
 
     .botones-carrito {
@@ -31,6 +33,12 @@ width: 25%;
         flex-direction: row;
         justify-content: space-around
 
+    }
+
+    .cards-carrito {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
 

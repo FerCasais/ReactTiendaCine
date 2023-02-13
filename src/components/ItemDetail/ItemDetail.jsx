@@ -27,7 +27,7 @@ const ItemDetail = ({ producto }) => {
       (
       <Container>
         <Row>
-          <div className="producto-cards w-100 ">
+          <div className="producto-cards w-75 ">
             <Col md={10} className="mb-5 " key={`${producto.id}`}>
               <div
                 key={producto.id}
@@ -36,12 +36,13 @@ const ItemDetail = ({ producto }) => {
                 <div className="card-header">
                   <h5>Sala: {producto.sala}</h5>{" "} 
                   <p className="mt-3 ">Horario: 18hs</p>
-                  <h2 className="text-danger">Titulo: {producto.titulo}</h2>{" "}
-                  <div><img src={producto.img} alt="foto pelicula" className="w-50" /></div>
-                </div>
-                <div className="card-body text-warning">
+                  <Col md={12}><div><img src={producto.img} alt="foto pelicula" className="w-50" /></div><div className="card-body text-warning">
                   <p className="fs-5">Synopsis: {producto.synopsis}</p>
+                </div></Col>
+                  <h2 className="text-danger">Titulo: {producto.titulo}</h2>{" "}
+                  
                 </div>
+                
                 
 
                 <div className="card-footer">
@@ -50,7 +51,7 @@ const ItemDetail = ({ producto }) => {
                 {isInCart ? (
                   <Link to={"/cart"}>
                     {" "}
-                    <button className="btn btn-outline-danger w-100 text-black-50 bg-info">
+                    <button className="btn btn-outline-danger w-100 text-50 bg-info">
                       Ver carrito
                     </button>
                   </Link>
