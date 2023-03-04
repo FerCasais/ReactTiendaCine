@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+## Title: Tienda Tickets On Line 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Screenshot of the project! 
+(![image](https://user-images.githubusercontent.com/116609929/218588311-f0bd504c-e86b-4c7c-b01e-843161036b0a.png))
 
-## Available Scripts
+### Description
+Portal on line de venta de entradas de cine- Construido en React JS con dependencias. Está construido para seleccionar peliculas por género a su preferencia, y se indica las salas de proyección. Proceso completo hasta comprar y recibir los tickets en su correo electrónico de registro. 
 
-In the project directory, you can run:
+### Meta
+https://github.com/FerCasais
+https://www.linkedin.com/in/pablo-casais-lopez-front-end-developer-react-js/
 
-### `npm start`
+### Demo
+Link to the project at https://jovial-khapse-76a421.netlify.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Dependencys
+"bootstrap": "^5.2.3", biblioteca de herramientas de código abierto para diseño de sitios y aplicaciones web. Es un framework front-end utilizado para desarrollar aplicaciones web
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+"firebase": "^9.17.1", uso de Cloud Firestore. Utilizando su base de datos de documentos NoSQL que me permitió almacenar, sincronizar y consultar fácilmente los datos de mi app.
 
-### `npm test`
+"react": "^18.2.0",  biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+"react-bootstrap": "^2.7.0",  kit de herramientas de código abierto de front-end, con potentes complementos de JavaScript
 
-### `npm run build`
+"react-dom": "^18.2.0", se utilizó React DOM es la librería que se encarga de renderizar los componentes de React para el navegador
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+"react-router-dom": "^6.6.2", también React Router, librería que nos facilita el proceso de definir las rutas de navegación dentro de nuestra aplicación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+"react-scripts": "5.0.1", uso del comando build que para generar la aplicación final. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+"sweetalert2": "^11.7.1", es un plugin de jQuery que da un mejor aspecto a los mensajes de alert que lanza a los usuarios para una mejor experiencia.
+    
